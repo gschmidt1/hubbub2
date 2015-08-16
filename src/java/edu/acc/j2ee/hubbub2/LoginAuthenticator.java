@@ -10,7 +10,6 @@ public class LoginAuthenticator {
 	public LoginAuthenticator(ServletConfig sc) {
 		this.sc = sc;
 	}
-	
 	public boolean authenticate(LoginBean user) {
 		if (user == null || user.getName() == null || user.getPassword() == null)
 			return false;
