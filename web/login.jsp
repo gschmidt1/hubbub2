@@ -11,7 +11,7 @@
         <title>Hubbub2 - Login</title>
     </head>
     <body>
-        <p><img src="hubbub.png" height="50" width="200"/></p>
+        <p><img src="images/hubbub.png" height="50" width="200"/></p>
         <h1>Log in to Hubbub</h1>
 	<h2>${flash}</h2>
 	<form method="POST" action="main">
@@ -21,7 +21,7 @@
                     <tr><td colspan="2"><input type="submit" value="Login" /></td></tr>
 		</table>
 	</form>
-        <p>Yet Not Registered!<a href="registration.jsp">Register Here</a></p>
-        <p>View Timeline Only!<a href="timeline.jsp">View Here</a></p>
+        <p>Yet Not Registered!<a href="registration.jsp"> Register Here</a></p>
+        <p>View Timeline Only!<a href="timeline.jsp"> View Here</a></p>
     </body>
 </html>
