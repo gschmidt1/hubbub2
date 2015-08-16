@@ -16,8 +16,8 @@
 	<h2>${flash}</h2>
 	<form method="POST" action="main">
 		<table border="1"
-                    <tr><td>User</td><td><input type="text" name="userName" /></td></tr>
-                    <tr><td>Password</td><td><input type="password" name="password" /></td></tr>
+                    <tr><td>User</td><td><input type="text" name="userLogin" /></td></tr>
+                    <tr><td>Password</td><td><input type="password" name="passwordLogin" /></td></tr>
                     <tr><td colspan="2"><input type="submit" value="Login" /></td></tr>
 		</table>
 	</form>
