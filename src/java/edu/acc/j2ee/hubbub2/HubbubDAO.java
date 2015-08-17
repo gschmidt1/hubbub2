@@ -25,7 +25,8 @@ public class HubbubDAO {
         }
         return null;
     }
-     public boolean findUserPassword(String userName, String userPassword) {
+
+    public boolean userPasswordExists(String userName, String userPassword) {
         for (User user : users) {
             if (user.getUserName().equals(userName) && user.getUserPassword().equals(userPassword)) {
                 return true;
@@ -33,9 +34,8 @@ public class HubbubDAO {
         }
         return false;
     }
-    
 
-      public List<Post> getSortedPosts() {
+    public List<Post> getSortedPosts() {
         List<Post> posts = new ArrayList<>();
         for (User user : users) {
             posts.addAll(user.getPosts());
