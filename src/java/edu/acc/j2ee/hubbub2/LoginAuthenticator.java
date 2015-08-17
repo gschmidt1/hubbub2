@@ -12,10 +12,7 @@ public class LoginAuthenticator {
         if (user == null || user.getName() == null || user.getPassword() == null) {
             return false;
         }
-        
-        if (user.getName().equals(sc.getInitParameter("validUserName"))
-                && user.getPassword().equals(sc.getInitParameter("validPassword"))) {
-            user.setId(Integer.parseInt(sc.getInitParameter("validId")));
+        if (db.findUserPassword(user.getName(), user.getPassword())){ 
             return true;
         } else {
             return false;
