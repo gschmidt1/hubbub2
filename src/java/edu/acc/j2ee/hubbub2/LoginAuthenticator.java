@@ -1,4 +1,3 @@
-
 package edu.acc.j2ee.hubbub2;
 
 import javax.servlet.ServletConfig;
