@@ -33,14 +33,14 @@ public class Controller extends HttpServlet {
 	throws ServletException, IOException {
 		String destination = "login.jsp";
 		HttpSession session = request.getSession();
-		String user = request.getParameter("user");
-		String pass = request.getParameter("pass");
+		String user = request.getParameter("loginUser");
+		String pass = request.getParameter("loginPass");
 		LoginBean bean = new LoginBean(user, pass);
 		ServletConfig sc = getServletConfig();
 		if (LoginValidator.validate(bean)) {
 			LoginAuthenticator ua = new LoginAuthenticator(sc);
 			if( ua.authenticate(bean) ) {
-				session.setAttribute("user", bean);
+				session.setAttribute("loginUser", bean);
 				destination = "timeline.jsp";
 			}
 			else request.setAttribute("flash", "Access Denied");

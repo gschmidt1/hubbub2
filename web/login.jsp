@@ -12,7 +12,7 @@
     </head>
     <body>
         <p><img src="images/hubbub.png" height="50" width="200"/></p>
-        <h1>Log in to Hubbub</h1>
+        <h1>Login to Hubbub</h1>
 	<h2>${flash}</h2>
 	<form method="POST" action="main">
 		<table border="1"
