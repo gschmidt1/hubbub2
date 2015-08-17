@@ -32,7 +32,7 @@ public class LoginBean implements java.io.Serializable {
         }
 
 	@Override public String toString() {
-		return String.format("[user: %s, id: %d]", name, id);
+		return String.format("%s", name);
 	}
 }
 	
