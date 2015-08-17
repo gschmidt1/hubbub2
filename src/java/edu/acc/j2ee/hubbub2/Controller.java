@@ -36,9 +36,11 @@ public class Controller extends HttpServlet {
 		String loginUser = request.getParameter("loginUser");
 		String loginPass = request.getParameter("loginPass");
 		LoginBean bean = new LoginBean(loginUser, loginPass);
-		ServletConfig sc = getServletConfig();
-		if (LoginValidator.validate(bean)) {
-			LoginAuthenticator ua = new LoginAuthenticator(sc);
+                
+		
+		HubbubDAO db = (HubbubDAO)getServletContext().getAttribute("db");
+                if (LoginValidator.validate(bean)) {
+			LoginAuthenticator ua = new LoginAuthenticator(db);
 			if( ua.authenticate(bean) ) {
 				session.setAttribute("loginUser", bean);
 				destination = "timeline.jsp";
