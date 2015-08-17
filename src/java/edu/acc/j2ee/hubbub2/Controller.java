@@ -33,8 +33,8 @@ public class Controller extends HttpServlet {
 	throws ServletException, IOException {
 		String destination = "login.jsp";
 		HttpSession session = request.getSession();
-		String loginUser = request.getParameter("loginUser");
-		String loginPass = request.getParameter("loginPass");
+		String loginUser = request.getParameter("userLogin");
+		String loginPass = request.getParameter("passLogin");
 		LoginBean bean = new LoginBean(loginUser, loginPass);
                 
 		
