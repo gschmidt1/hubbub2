@@ -18,7 +18,7 @@
         <img src="images/hubbub.png"/><br/>
         <h1>Welcome to Hubbub&trade;!</h1>
         <h2>Timeline</h2>
-        <h2>${loginUser}</h2>
+        <h2 style="color:blue">Hello ${loginUser}!</h2>
         <c:forEach var="post" items="${posts}">
             <div class="postdiv">
                 <span class="authorspan">${post.author}</span>

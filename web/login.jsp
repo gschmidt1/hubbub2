@@ -21,7 +21,6 @@
                     <tr><td colspan="2"><input type="submit" value="Login" /></td></tr>
 		</table>
 	</form>
-        <p>Not Yet Registered!<a href="registration.jsp"> Register Here</a></p>
-        <p>Just View Timeline Only!<a href="timeline.jsp"> View Here</a></p>
+        
     </body>
 </html>
