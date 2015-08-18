@@ -53,14 +53,27 @@ public class Controller extends HttpServlet {
         HttpSession session = request.getSession();
         String loginUser = request.getParameter("userLogin");
         String loginPass = request.getParameter("passLogin");
+        String regUser = request.getParameter("regUser");
+        String regPass = request.getParameter("regPass");
         String postText = request.getParameter("postText");
         
         HubbubDAO db = (HubbubDAO) getServletContext().getAttribute("db");
         List<Post> posts = db.getSortedPosts();
         
         LoginBean bean = (LoginBean) session.getAttribute("loginUser");
+        
+        if (regUser == null){
+            regUser = "";
+        }
+        if (regPass == null){
+            regPass = "";
+        }
+         if (postText == null){
+            postText = "";
+        }
+        
         //logging in
-        if (bean == null) {
+        if (bean == null && regUser.length() == 0 && regPass.length() == 0) {
             bean = new LoginBean(loginUser, loginPass);            
             if (LoginValidator.validate(bean)) {
                 LoginAuthenticator ua = new LoginAuthenticator(db);
@@ -75,10 +88,29 @@ public class Controller extends HttpServlet {
                 request.setAttribute("flash", "One or more fields are invalid");
             }
         }
-        //posting    
-        if (postText == null){
-            postText = "";
+        //register
+        
+        if (bean == null && regUser.length() > 0 && regPass.length() > 0) {
+            if (RegisterValidator.validate(regUser) && RegisterValidator.validate(regPass)) {
+                db = (HubbubDAO) getServletContext().getAttribute("db");
+                User existUser = new User();
+                existUser = db.find(regUser);
+                if(existUser != null){
+                    destination = "registration.jsp";
+                    request.setAttribute("flash", "User already exists");
+                }else{
+                    destination = "login.jsp";
+                    User user = new User(regUser, regPass, new Date());
+                    db.addUser(user);
+                }
+            }else{
+                destination = "registration.jsp";
+                request.setAttribute("flash", "One or more fields are invalid");
+            }
         }
+
+        //posting    
+       
         if (bean != null && postText.length() > 0) {  
             if (PostValidator.validate(postText)) {
                 destination = "timeline.jsp";

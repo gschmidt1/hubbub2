@@ -14,7 +14,7 @@ public class LoginValidator {
             return false;
         }
         if (checkString.indexOf("\"") > 0) {
-         return false;
+            return false;
         }
         if (checkString.indexOf("&") > 0) {
             return false;
