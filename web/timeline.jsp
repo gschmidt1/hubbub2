@@ -31,6 +31,13 @@
                 <span class="datespan">Posted ${post.postDate}</span>
             </div>
         </c:forEach>
+        <c:if test="${sessionScope.loginUser == null}" >
+            <a href="login.jsp">Back!</a>
+        </c:if>
+        <c:if test="${sessionScope.loginUser != null}" >
+            <p>Want to logout?<a href="main?loginLinks=logout">Logout Here!</a></p>
+            <p>Want to post?<a href="main?loginLinks=post">Post Here!</a></p>
+        </c:if>
         <h3 class="footer">
             Copyright 2015 www.austincc.edu and www.bytecaffeine.com
         </h3>

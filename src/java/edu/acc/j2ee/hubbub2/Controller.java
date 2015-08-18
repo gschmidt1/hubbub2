@@ -14,29 +14,31 @@ public class Controller extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         String destination = "timeline.jsp";
         HttpSession session = request.getSession();
-        User bean = (User)session.getAttribute("userLogin");
-        
+        LoginBean bean = (LoginBean) session.getAttribute("loginUser");
+ 
         String loginLinks = request.getParameter("loginLinks");
-        if (loginLinks == null){
+        if (loginLinks == null) {
             loginLinks = "";
         }
-        if (bean == null){
+        if (bean == null) {
             destination = "login.jsp";
         }
         if (loginLinks.equals("register")) {
             destination = "registration.jsp";
         }
-        if (loginLinks.equals("timeline")){
+        if (loginLinks.equals("timeline")) {
             destination = "timeline.jsp";
-            HubbubDAO db = (HubbubDAO)getServletContext().getAttribute("db");
+            HubbubDAO db = (HubbubDAO) getServletContext().getAttribute("db");
             List<Post> posts = db.getSortedPosts();
             request.setAttribute("posts", posts);
-       
         }
-        
+        if (loginLinks.equals("logout")) {
+			session.invalidate();
+			destination = "login.jsp";
+        }                
         request.getRequestDispatcher(destination).forward(request, response);
     }
 
@@ -65,7 +67,5 @@ public class Controller extends HttpServlet {
             request.setAttribute("flash", "One or more fields are invalid");
         }
         request.getRequestDispatcher(destination).forward(request, response);
-                
     }
-                
 }

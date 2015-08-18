@@ -25,7 +25,9 @@
         </form>
         </fieldset>
         <br>
-        <a href="login.jsp">Logout</a>
+       
+        <a href="login.jsp">Logout!t</a>
+        
     </body>
 </html>
 
