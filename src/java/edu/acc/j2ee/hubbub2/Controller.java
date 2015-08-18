@@ -29,6 +29,9 @@ public class Controller extends HttpServlet {
         if (loginLinks.equals("register")) {
             destination = "registration.jsp";
         }
+         if (loginLinks.equals("post")) {
+            destination = "post.jsp";
+        }
         if (loginLinks.equals("timeline")) {
             destination = "timeline.jsp";
             HubbubDAO db = (HubbubDAO) getServletContext().getAttribute("db");

@@ -12,12 +12,12 @@
          <title>Hubbub2 - Post</title>
     </head>
     <body>
-         <p><img src="hubbub.png" height="50" width="200"/></p>
+        <p><img src="images/hubbub.png" height="50" width="200"/></p>
         <h1>Post to Hubbub</h1>
         <h2><font color="blue">${postMessage}</font></h2>
         <fieldset>
         <legend>Please enter your text:</legend>
-        <form action="formAction.jsp" method="POST
+        <form method="POST" action="main">
             <br>
             <textarea name="postTextArea" rows="7" maxlength="140"></textarea>
             <br><br>
@@ -25,9 +25,7 @@
         </form>
         </fieldset>
         <br>
-       
-        <a href="login.jsp">Logout!t</a>
-        
+        <p>Want to logout?<a href="main?loginLinks=logout">Logout Here!</a></p>
     </body>
 </html>
 
