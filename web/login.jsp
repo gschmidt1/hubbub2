@@ -21,6 +21,7 @@
                     <tr><td colspan="2"><input type="submit" value="Login" /></td></tr>
 		</table>
 	</form>
-        
+        <p>Not Yet Registered!<a href="main?loginLinks=register">Register Here</a></td>
+        <p>View Timeline Posts!<a href="main?loginLinks=timeline">View Here</a></td>
     </body>
 </html>

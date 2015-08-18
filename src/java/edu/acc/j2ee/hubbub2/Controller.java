@@ -20,18 +20,23 @@ public class Controller extends HttpServlet {
         User bean = (User)session.getAttribute("userLogin");
         
         String loginLinks = request.getParameter("loginLinks");
-        if (loginLinks == "register") {
-            destination = "registeration.jsp";
-        }
-        if (loginLinks == "timeline"){
-            destination = "timeline.jsp";
-            HubbubDAO db = (HubbubDAO)getServletContext().getAttribute("db");
-            List<Post> posts = db.getSortedPosts();
-            request.setAttribute("posts", posts);
+        if (loginLinks == null){
+            loginLinks = "";
         }
         if (bean == null){
             destination = "login.jsp";
         }
+        if (loginLinks.equals("register")) {
+            destination = "registration.jsp";
+        }
+        if (loginLinks.equals("timeline")){
+            destination = "timeline.jsp";
+            HubbubDAO db = (HubbubDAO)getServletContext().getAttribute("db");
+            List<Post> posts = db.getSortedPosts();
+            request.setAttribute("posts", posts);
+       
+        }
+        
         request.getRequestDispatcher(destination).forward(request, response);
     }
 
