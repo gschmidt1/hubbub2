@@ -13,12 +13,12 @@
 	<h2>${flash}</h2>
 	<form method="POST" action="main">
 		<table border="1"
-                    <tr><td>User Name</td><td><input type="text" name="userName" /></td></tr>
-                    <tr><td>Password</td><td><input type="password" name="password" /></td></tr>
-                    <tr><td colspan="2"><input type="submit" value="Login" /></td></tr>
+                    <tr><td>Create User Name</td><td><input type="text" name="userName" /></td></tr>
+                    <tr><td>Create Password</td><td><input type="password" name="password" /></td></tr>
+                    <tr><td colspan="2"><input type="submit" value="Create" /></td></tr>
 		</table>
 	</form>
-        <p>Yet Not Registered!<a href="registration.jsp"> Register Here</a></p>
-        <p>View Timeline Only!<a href="timeline.jsp"> View Here</a></p>
+        <br><br>
+        <a href="login.jsp">Back!</a>
     </body>
 </html>
